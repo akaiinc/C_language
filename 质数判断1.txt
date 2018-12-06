@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int n, m = 2;//当n>=3开始，当n=m时输出m，或者中途终止循环
+	scanf("%d", &n);
+	if(n=2)
+		printf("%d is a prime number.\n", n);
+	else
+	{
+		while (m < n)
+		{
+			if (n%m == 0)
+				goto A;
+			else
+				m++;
+		}
+	A:
+		{if (m == n)
+			printf("%d is a prime number.\n", n);
+		else
+			printf("%d is not a prime number.\n", n);
+		}
+	}
+	system("pause");
+	return 0;
+}

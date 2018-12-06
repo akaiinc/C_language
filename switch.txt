@@ -1,0 +1,6 @@
+int a;
+printf("input
+ integer number: ");
+scanf("%d",&a);
+switch
+(a£©

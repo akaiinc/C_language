@@ -1,0 +1,3 @@
+1.项目→文件名 属性→C/C++→预处理器→预处理器定义→<编辑…>→第一空改为_CRE_SECURE_NO_WARNNINGS→重新生成解决方案
+
+2.在项目属性→C/C++→命令行中添加：/D _CRT_SECURE_NO_WARNINGS→重新生成解决方案

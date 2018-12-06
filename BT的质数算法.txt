@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{	int m,n,q,a,b;
+    printf("请输入N\n");
+	scanf_s("%d", &n);
+	q=1;//q初始值为1
+	for(m=1;m<=n;m++)//m为从1开始每次加1的数，直到m=n
+	{
+		q=q*m;//1不断与1.2.3.4....直到n相乘
+	}
+	printf("N的阶乘等于：%d\n",q);//输出N的阶乘的值
+	printf("小于N的质数有; \n");
+	for(a=1;a<n;a++)//a作为被除数，不断被从2开始的数除
+	{
+		for(b=2;b<a;b++)//b作为除数，不断除a
+	    if(a%b ==0) break;//当a/b余数为0时，a存在非1和他本身的因子，所以跳出内循环，a+1得到下一个被除数继续试除
+		if(a==b)//当除数与被除数相等时，则说明从2到a-1不存在可以整除a的数，则可判断a为质数
+		{
+			printf("%d ", a);//输出a的值，进入外循环让a+1进行下一次试除，直到a=n-1
+		}
+	}
+	system("pause");
+	return(0);
+}

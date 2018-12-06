@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{
+	double i=1, n, aim=0,last=1,pai;
+	while (fabs(last) >= 1e-6)
+	{
+		if (i % 2 == 0)
+			n = -1;
+		else
+		{
+			n = 1;
+		}
+		aim = aim + last;
+		i++;
+		last = n * (1 / (i + 2));
+	}
+	pai = 4.0 * aim;
+	printf("pai is %10.7f",pai);
+	system("pause");
+	return 0;
+}
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{	
+	double i=1.0, n=1.0, aim=0.0,last=1.0,pai,m=1.0;
+	while (fabs(last) >= 1e-6)
+	{
+
+		aim = aim + last;//1
+		i++;//2
+		m = m + 2;//3
+		n = -n;
+		last = n * (1 /m);
+		
+	}
+	pai = 4.0 * aim;
+	printf("pai is %10.8f",pai);
+	system("pause");
+	return 0;

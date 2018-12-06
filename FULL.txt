@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct stu
+{
+	int num;
+	char name[20];
+	float sc;
+};
+int main()
+{
+	float inf(struct stu *p, struct stu *max);
+	int i; float avg;
+	struct stu all[3],max,min;
+	printf("please input the infornation of 3 students:\n");
+	for (i = 0; i < 3; i++)
+	{
+		printf("Please input the information of No.%d\n", i + 1);//提醒输入
+		printf("Number:"); 
+		scanf("%d", &all[i].num);//记得加&
+		printf("Name:");
+		scanf("%s", all->name);//gets(all[i].name);好像不行啊？？
+		printf("Score:");
+		scanf("%f",& all[i].sc);
+	}
+	avg = inf(all, &max, &min);
+	printf("\n");
+	printf("ACE is\nNum:%d\nName:%s\nScore:%f\n", max.num, max.name, max.sc);
+	printf("\n");
+	printf("The last one is\nNum:%d\nName:%s\nScore:%f\n", min.num, min.name, min.sc);
+	printf("\n");
+	printf("The average is %f\n",avg);
+	system("pause");
+	return 0;
+}
+float inf(struct stu all[], struct stu *max,struct stu *min)/*应该将5个结构体传入函数所以括号中应该有all[],
+函数内部定义结构体指针，需要在函数外部将该结构体的地址传入！！*/
+{
+	int i;
+	max->sc = all[0].sc;
+	for (i = 1; i < 3; i++)
+		if (max->sc < all[i].sc)
+		{
+			max->num = all[i].num;
+			strcpy(max->name, all[i].name);
+			max->sc = all[i].sc;
+		}
+	min->sc = all[0].sc;
+	for (i = 1; i < 3; i++)
+		if (min->sc > all[i].sc)
+		{
+			min->num = all[i].num;
+			strcpy(min->name, all[i].name);
+			min->sc = all[i].sc;
+		}
+	float sum=0,avg;
+	for(i=0;i<3;i++)
+		sum = sum + all[i].sc;
+	return avg = (sum / 3);
+}

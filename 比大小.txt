@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 1000
+int main()
+{
+	char x[N],y[N];
+	int compare(char A[],char B[]);
+	printf("please input x[] y[]\n");
+	scanf("%s",x);
+	scanf("%s",y);
+	compare(x,y);
+	system("pause");
+	return 0;
+}
+int compare(char A[],char B[])
+	/*比较大小规则:
+	1比较长短 
+	2:长短相同的情况下依次比较相同位的字符大小若第一位比较出来大小则输出较大字符，若相等则比较第二位
+	例aasd<absd*/
+{
+	int length(char A[]);
+	int j;
+	if(length(A)>length(B))
+		printf("%s>%s",A,B);
+	else if(length(A)<length(B))
+		printf("%s>%s",B,A);
+	else//2:长短相同的情况下依次比较相同位的字符大小若第一位比较出来大小则输出较大字符，若相等则比较第二位
+		for(j=0;j<length(A);j++)
+		{
+			if(A[j]>B[j])
+			{
+					printf("%s>%s",A,B);
+					break;
+			}
+			else if(A[j]<B[j])
+			{
+				printf("%s>%s",B,A);
+				break;
+			}
+
+		}
+
+
+
+}
+int length(char A[])
+{
+	int i;
+	for(i=0;;i++)
+	{
+		if(A[i]=='\0')
+			break;
+	}
+	return(i+1);
+}

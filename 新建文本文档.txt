@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 1000
+int main()
+{
+	int plus(char A[],char B[]);
+	char x[N],y[N];
+	printf("please input char x[],y[]:\n");
+	scanf("%s,%s",x,y);
+	printf("sum is:%s",plus(x,y));//此处错误,函数表达式中不写【~】
+
+
+	
+}
+int plus(char A[],char B[])//中间不要有N
+{	char C[2*N];
+	int i,j;
+	 for(i=0;i!=0;i++)
+	{ C[i]=A[i];
+	 if(A[i]==0)
+		 break;
+	 }
+	 for(j=0;j!=0;j++,i++)//继承上一个循环的i
+	 {
+		C[i]=B[j];
+		if(C[i]==0)
+			break;
+	 }
+	 return C[i];
+
+}

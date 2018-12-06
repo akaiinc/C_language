@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int n,m,i,total=1;
+	printf("please input n (n>=2):");
+	scanf("%d",&n);
+	if(n==3) printf("2\n");
+	else//n>=4
+		printf(" 2 ");
+		for(m=3;m<n;m++)
+		{
+			i=2;
+			while(i<m)
+			{
+				if(m%i==0)
+					break;
+				else
+					i++;
+			}
+			if(i==m)
+			{
+			printf("%d ",m);
+			total++;
+			m++;
+			}
+			else
+				m++;
+		}
+		printf("\ntotal=%d\n",total);
+		system("pause");
+		return 0;
+}

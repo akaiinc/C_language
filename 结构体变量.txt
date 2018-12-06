@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	/*struct date
+	{
+		int month;
+		int day;
+		int year;
+	};*/
+	struct student
+	{
+		int num;
+		char name[20];
+		char sex;
+		int age;
+		//struct date birthday;
+		char addr[30];
+	} student1={001,"Tony",'M',19,"Chengdu"};
+	struct student student2;
+	student2.num=002;
+	//student2={002,"Lily",'F',18,"Tokyo"};  wrong!!  //在花括号前定义括号内的结构类型即 struct student
+	//可以无类型对某一变量中的某一元素单独赋值（前提是先定义），不可以无类型对某一结构体变量整体赋值
+	printf("NO.%d\nNAME:%s\nSEX:%c\nAGE:%d\nADDRESS:%s\n",student1.num,student1.name,student1.sex,student1.age,student1.addr);
+	printf("NO.%d\n",student2.num);
+	system("pause");
+	return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	struct date
+	{
+	int month;
+	int day;
+	int year;
+	};
+	struct student
+	{
+		int num;
+		char name[20];
+		char sex;
+		int age;
+		struct date birthday;
+		char addr[30];
+	} student1 = { 001,"Tony",'M',19,{12,15,1998},"Chengdu" };
+	struct student student2;
+	//student2.num = 002;
+	//student2 =(struct student) { 002,"Lily",'F',18,"Tokyo"};
+	//可以无类型对某一变量中的某一元素单独赋值（前提是先定义），不可以无类型对某一结构体变量整体赋值
+	printf("NO.%d\nNAME:%s\nSEX:%c\nAGE:%d\nbirthday:%d.%d.%d\nADDRESS:%s\n", student1.num, student1.name, student1.sex, student1.age, student1.birthday.month,  student1.birthday.day, student1.birthday.year, student1.addr);
+	//printf("NO.%d\n", student2.num);
+	system("pause");
+	return 0;
+}

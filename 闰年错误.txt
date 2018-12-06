@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int x,a;
+	printf("please input a year:\n");
+	scanf("%d", &x);
+	if (x % 100 == 0)
+	{
+		if (x % 400 == 0)
+			a = 1;
+		else
+			a = 0;
+	}
+	else
+	{
+		if (x % 4 == 0)
+			a = 1;
+		else
+
+			a = 0;
+	}
+	if (a = 0)   //此处错误！（）中应该为恒等于而非赋值语句！！
+		printf("it is not a leap year\n\n");
+	if(a=1)//此处也可以写成： else
+		printf("it is a leap year\n\n");
+	system("pause");
+	return 0;
+
+}

@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int n,i=1,N=1;
+	printf("please input n:");
+	scanf("%d",&n);
+	while(i<=n)
+		{
+			N=N*i;
+			i++;
+		}
+	printf("N=%d",N);
+	system("pause");
+	return 0;
+}
+
+º¯Êýµ÷ÓÃµÝ¹é
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int fact(int n);
+	int y,n;
+	scanf("%d",&n);
+	y = fact(n);
+	printf("%d\n",y);
+	system("pause");
+	return 0;
+}
+int fact(int n)
+{
+	int c;
+	if (n == 1)
+		c = 1;
+	else
+		c = n * fact(n - 1);
+	return(c);
+}

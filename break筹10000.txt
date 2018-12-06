@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	float i,a, b=0, c;
+	for (i = 1; i <= 100;)
+	{
+		printf("please input the num:");
+		scanf("%f", &a);
+		b = b + a;
+		c = b / i;
+		if (b >= 10000)break;
+		i++;// you can not put "i++" before the "break"!
+	}
+	printf("total is %f$\naver is %f$\ni=%f", b, c,i);
+	system("pause");
+	return 0;

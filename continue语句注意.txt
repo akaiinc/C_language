@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int a,b,n;
+	printf("please input the range:");
+	scanf("%d,%d", &a, &b);
+	for (n = a; n <= b;n++)
+	{
+		if (n % 3 == 0)
+			
+			continue;
+		printf("%d ", n);
+		/*理论上来说，for中语句3的位置相当于后花括号前一行语句，可以在最后写条件而不写语句3
+			但是在continue语句中如果从continue跳出，则跳出到后花括号前方执行下一次循环，
+			此时for语句中必须有语句3，相当于跳到后花括号前虚的语句3的前面！！*/
+	}
+
+	system("pause");
+	return 0;
+
+}

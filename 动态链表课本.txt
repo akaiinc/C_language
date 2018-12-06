@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define LEN sizeof(struct student)
+struct student
+{
+	long num;
+	float score;
+	struct student*next
+};
+int n;
+struct student *creat(void)
+{
+	struct student*head;
+	struct student *p1, *p2;
+	p1 = p2 = (struct student*)malloc(LEN);//开辟第一个节点
+	n = 0;//节点的值
+	sacnf("%ld,%f", &p1->num, &p1->score);//向第一个节点注入值
+	head = NULL;//head初始化
+	while (p1->num != 0)//第一个节点号码不为零
+	{
+		n = n + 1;//
+		if (n == 1)head = p1;//1.使head为第一个节点的地址，整个链表的地址
+		else p2->next = p1;//2.第一个节点中的尾巴指向第二个节点
+		p2 = p1;//1.重复赋值//2.p2.跟进到p1
+		p1 =  (struct student* )malloc(LEN);//1.开辟下一个节点并使p1指向该节点的地址
+		scanf("%ld,%f", &p1->num, &p2->score);//1.向新节点注值
+	}
+	p2->next = NULL;
+	return(head);
+}
+int main()
+{
+	struct student*pt;
+	pt = creat();
+	printf("\nnum:%ld\nscore:%5.1f\n", pt->num, pt->score);
+	system("pause");
+	return 0;
+}

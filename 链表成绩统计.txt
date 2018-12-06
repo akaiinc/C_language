@@ -1,0 +1,89 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define LEN sizeof(struct student)
+struct student
+{
+	long num;
+	char name[20];
+	float score;
+	struct student* next;
+};
+int n;
+struct student* creat(void)
+{
+	struct student*p1, *p2, *head;
+	n = 0;
+	head = NULL;
+	p1 = p2 = (struct student*)malloc(LEN);
+	printf("Please input the information of student 1:\n");
+	scanf("%ld, %s,%f", &p1->num, p1->name, &p1->score);
+	while (p1->num != 0)
+	{
+		n = n + 1;
+		if (n == 1) head = p1;
+		else
+		{
+			p2->next = p1;
+			printf("Please input the information of student %d:\n",n);
+		}
+		p2 = p1;
+		p1= (struct student*)malloc(LEN);
+		scanf("%ld, %s,%f", &p1->num, p1->name, &p1->score);
+	}
+	p2->next = NULL;
+	return (head);
+}
+int main()
+{
+	struct student* creat(void);
+	float av(struct student*pt, struct student*max, struct student*min);
+	struct student*pt;
+	struct student max, min;
+	float avg;
+	pt = creat();
+	avg = av(pt, &max, &min);
+	printf("\n\nR E S U L T\n");
+	printf("The top one:\nNO:%ld\nName:%s\nScore:%f\n", max.num, max.name, max.score);
+	printf("The last one:\nNO:%ld\nName:%s\nScore:%f\n", min.num, min.name, min.score);
+	printf("The average: %f\n", avg);
+	system("pause");
+	return 0;
+}
+float av(struct student*pt, struct student*max, struct student*min)
+{
+	int i;
+	struct student*p;
+	float avg,sum=0;
+	p = pt;
+	max->num = p->num;
+	strcpy(max->name, p->name);
+	max->score = p->score;
+	min->num = p->num;
+	strcpy(min->name, p->name);
+	min->score = p->score;
+	for (i = 1; i < n; i++,p=p->next)
+	{
+		if (p->next == NULL) break;
+		if (p->score >= (p->next)->score)
+		{
+			max->num = p->num;
+			strcpy(max->name, p->name);
+			max->score = p->score;
+		}
+	}
+	for (i = 1; i < n; i++, p = p->next)
+	{
+		if (p->next == NULL) break;
+		if (p->score <= (p->next)->score)
+		{
+			min->num = p->num;
+			strcpy(min->name, p->name);
+			min->score = p->score;
+		}
+	}
+	for (i = 1; i <= n; i++, p = p->next)
+		sum = sum + (p->score);
+	avg = (sum / n);
+	return(avg);
+}

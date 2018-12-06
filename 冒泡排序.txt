@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int i, j, t,k, a[10];
+	printf("please input 10 numbers:\n");
+	for (i = 0; i<10; i++)
+	{
+		scanf("%d", &j);
+		a[i] = j;
+	}
+	for (k = 0; k<9; k++)//变量不能与嵌套的循环中的变量相同 ！！
+	{
+		for (i = 0; i<9; i++)
+			if (a[i]>a[i + 1])
+			{
+				t = a[i + 1];
+				a[i + 1] = a[i];
+				a[i] = t;
+			}
+	}
+	for (i = 0; i<10; i++)
+		printf("%d ", a[i]);
+	system("pause");
+	return 0;
+}

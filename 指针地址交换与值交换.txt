@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+void swapn(int *p1, int*p2)
+{
+	int swap;
+	swap=*p1;
+	*p1=*p2;
+	*p2=swap;
+}
+int main()
+{
+	void swapa(int *p1,int*p2);
+	int a,b;
+	int*p1,*p2;
+	printf("please input two numbers (,)\n:");
+	scanf("%d,%d",&a,&b);
+	p1=&a;p2=&b;
+	if(a<b)
+		{swapn(p1,p2);
+		printf("值交换 大 小 %d,%d",a,b);
+	}
+	else
+		{swapa(p1,p2);
+			printf("地址交换 小 大 %d，%d",*p1,*p2);
+			printf("查看a b的值是否变化 %d,%d",a,b);
+	}
+	system("pause");
+	return 0;
+}
+void swapa(int *p1,int*p2)
+{
+	int *swap;
+		swap=p1;
+		p1=p2;
+		p2=swap;
+}

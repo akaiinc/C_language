@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct stu
+{
+	int num;
+	char name[20];
+	float sc;
+};
+int main()
+{
+	float inf(struct stu *p, struct stu *max);
+	int i;
+	struct stu all[5],max,min;
+	printf("please input the infornation of 5 students:\n");
+	for (i = 0; i < 5; i++)
+	{
+		scanf("%d", all[i].num);
+		gets(all[i].name);
+		scanf("%f", all[i].sc);
+	}
+	inf(all, &max,&min);//传入地址
+}
+float inf(struct stu all[], struct stu *max,struct stu *min)/*应该将5个结构体传入函数所以括号中应该有all[],
+函数内部定义结构体指针，需要在函数外部将该结构体的地址传入！！*/
+{
+	max->sc = all[0].sc;
+	int i;
+	for (i = 0; i < 5; i++)
+		if (max->sc < all[i].sc)
+		{
+			max->num = all[i].num;
+			strcpy(max->name, all[i].name);
+			max->sc = all[i].sc;
+		}
+	min->sc = all[0].sc;
+	for (i = 0; i < 5; i++)
+		if (min->sc > all[i].sc)
+		{
+			min->num = all[i].num;
+			strcpy(min->name, all[i].name);
+			min->sc = all[i].sc;
+		}
+	float sum=0,avg;
+	for(i=0;i<5;i++)
+		sum = sum + all[i].sc;
+	return avg = (sum / 5);
+}

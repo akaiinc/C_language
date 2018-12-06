@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define N 1000
+int main()
+{
+	int plus(char x[N], char y[N]);
+	char sum;
+	char x[N], y[N];
+	printf("please input x[N],y[n]\n");
+	scanf("%s,%s",x,y);
+	sum = plus(x, y);
+	printf("%s", sum);
+	system("pause");
+	return 0;
+}
+int plus(char x[N], char y[N])
+{
+	char z[2*N];
+	int i,j;
+	for (i = 0; i != 0; i++)
+	{
+		z[i] = x[i];
+		if (x[i] == '\0')
+			break;
+	}
+	for (j = 0; j!= 0; j++)
+	{
+		z[i + j] = y[j];
+		if (y[j] == '\0')
+			break;
+	}
+	z[i + j] = '\0';
+	return z;
+}
+
+
+ĞŞ¸Ä
+#include<stdio.h>
+#include<stdlib.h>
+#define N 1000
+int main()
+{
+	void plus(char x[N], char y[N],char z[2*N]);
+	char x[N], y[N],z[2*N];
+	printf("please input x[N]\n");
+	gets(x);
+	printf("please input y[N]\n");
+	gets(y);
+	plus(x, y,z);
+	printf("%s",z);
+	system("pause");
+	return 0;
+}
+void plus(char x[N], char y[N],char z[2*N])
+{
+	int i, j ;
+	for (i = 0; x[i] != 0; i++)
+		z[i] = x[i];
+	for (j = 0; y[j] != 0; j++, i++)
+		z[i] = y[j];
+	z[i] = 0;
+}

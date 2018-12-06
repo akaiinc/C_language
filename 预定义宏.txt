@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define PRINT_INT(n) printf(#n"=%d\n",n)
+#define DEBUG
+int main()
+{
+#if defined DEBUG
+	printf("Operating on %s at %s\n",__DATE__,__TIME__);
+#endif
+	int i = 25, j = 2;
+	PRINT_INT(i / j);
+	system("pause");
+	return 0;
+}
